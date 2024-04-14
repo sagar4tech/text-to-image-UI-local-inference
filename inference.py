@@ -1,7 +1,8 @@
 ####   text to Image  on Gradio UI 
-
+import torch
 from diffusers import DiffusionPipeline
 import gradio as gr
+
 
 # Provide the file path to your locally stored model file
 model_file_path = "/model/file/path/to/model/directory/"
