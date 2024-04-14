@@ -11,8 +11,8 @@ model_file_path = "/model/file/path/to/model/directory/"
 url = "runwayml/stable-diffusion-v1-5"
 
 # Load the safetensor model 
-pipe = DiffusionPipeline.from_pretrained(url, torch_dtype=torch.float16)
-pipe = pipe.to("mps")
+pipe = DiffusionPipeline.from_pretrained(url)
+# Metal performance shader(mps) to optimize infernece using Mac built-in gpu :          pipe = pipe.to("mps")
 
 def predict(text):
     # Ensure pipe(text) returns the correct output format
