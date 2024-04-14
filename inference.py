@@ -1,13 +1,16 @@
 ####   text to Image  on Gradio UI 
 
-from diffusers import StableDiffusionPipeline
+from diffusers import DiffusionPipeline
 import gradio as gr
 
 # Provide the file path to your locally stored model file
-model_file_path = "/Users/sagar/Desktop/AI-project/gen-ai-inference/stable-diffusion-v1-5/v1-5-pruned-emaonly.safetensors"
+model_file_path = "/model/file/path/to/model/directory/"
+
+# Provide the url to model id
+url = "runwayml/stable-diffusion-v1-5"
 
 # Load the safetensor model 
-pipe = StableDiffusionPipeline.from_single_file(model_file_path)
+pipe = DiffusionPipeline.from_pretrained(url, torch_dtype=torch.float16)
 pipe = pipe.to("mps")
 
 def predict(text):
